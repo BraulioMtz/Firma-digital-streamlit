@@ -17,7 +17,7 @@ if uploaded_file:
     conn = snowflake.connector.connect(
         user='BRAUMTZ',
         password='SnowflakeNueva-1',
-        account='ZF58512',
+        account='OM67152',
         warehouse='COMPUTE_WH',
         database='RETO_CRIPTO',
         schema='PUBLIC'
