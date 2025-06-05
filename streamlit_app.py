@@ -69,9 +69,7 @@ if uploaded_file:
     c.setFont("Helvetica", 10)
     c.drawString(100, 750, "✅ Documento firmado digitalmente")
     c.drawString(100, 730, f"📅 Fecha de firma: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    c.drawString(100, 710, "🔐 Clave pública (PEM):")
-    for i, line in enumerate(public_pem.splitlines()):
-        c.drawString(100, 690 - i*12, line)
+
     c.drawString(100, 500, "✍️ Firma digital (hex):")
     for i, line in enumerate(signature.hex()[i:i+80] for i in range(0, len(signature.hex()), 80)):
         c.drawString(100, 480 - i*12, line)
