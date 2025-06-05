@@ -15,12 +15,13 @@ uploaded_file = st.file_uploader("📄 Sube un PDF para firmar", type=["pdf"])
 if uploaded_file:
     # 1. Cargar clave privada desde Snowflake
     conn = snowflake.connector.connect(
-        user='BRAUMTZ',
-        password='SnowflakeNueva-1',
-        account='GZWCUFB-ZF58512',
-        warehouse='COMPUTE_WH',
-        database='RETO_CRIPTO',
-        schema='PUBLIC'
+        user=st.secrets["snowflake"]["user"],
+        password=st.secrets["snowflake"]["password"],
+        account=st.secrets["snowflake"]["account"],
+        warehouse=st.secrets["snowflake"]["warehouse"],
+        database=st.secrets["snowflake"]["database"],
+        schema=st.secrets["snowflake"]["schema"],
+        role=st.secrets["snowflake"]["role"]
     )
     cursor = conn.cursor()
     cursor.execute("SELECT clave_privada FROM claves_privadas WHERE id = 'firma_general'")
